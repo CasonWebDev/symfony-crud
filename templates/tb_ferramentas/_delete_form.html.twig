@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('tb_ferramentas_delete', {'cod_ferramenta': tb_ferramenta.getCodFerramenta}) }}" onsubmit="return confirm('Tem certeza que deseja deletar esse item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tb_ferramenta.getCodFerramenta) }}">
+    <button class="btn"><i class="delete-icon fa fa-trash" aria-hidden="true" title="Deletar"></i></button>
+</form>

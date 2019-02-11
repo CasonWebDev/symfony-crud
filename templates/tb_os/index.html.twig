@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ordem de Serviço{% endblock %}
+
+{% block breadcrumb %}Ordens de Serviço{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header d-flex">
+        Ordem de Serviço
+        <div class="ml-auto">
+            <a href="{{ path('tb_os_new') }}">
+                <button type="button" class="btn btn-outline-success">
+                    <span class="text-nowrap"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Ordem de Serviço</span>
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Data do Serviço</th>
+                    <th>Valor Total</th>
+                    <th>Valor Total <small>(com desconto)</small></th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for tb_o in tb_os %}
+                <tr>
+                    <td>{{ tb_o.sequence }}</td>
+                    <td>{{ tb_o.dataServico ? tb_o.dataServico|date('d/m/Y') : '' }}</td>
+                    <td>{{ tb_o.valorTotal|price(2,',','.') }}</td>
+                    <td>{{ tb_o.valorTotal|desc(tb_o.desconto,2,',','.') }}</td>
+                    <td>
+                        <div class="d-flex">
+                            <a href="{{ path('tb_os_edit', {'id': tb_o.id}) }}"><i class="edit-icon fa fa-pencil" aria-hidden="true" title="Editar"></i></a>
+                            {{ include('tb_os/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Nenhum registro encontrado</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+</div>
+{% endblock %}

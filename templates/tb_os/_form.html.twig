@@ -1,0 +1,46 @@
+{{ form_start(form) }}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.desconto, 'Desconto') }}<small>(%)</small>
+                        {{ form_widget(form.desconto, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.desconto) }}</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.data_servico, 'Data do Serviço') }}
+                        {{ form_widget(form.data_servico, {'attr': {'class': 'form-control'}, 'required':false, 'type':'date'}) }}
+                        <small class="text-danger">{{ form_errors(form.data_servico) }}</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.tecnico, 'Técnico') }}
+                        {{ form_widget(form.tecnico, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.tecnico) }}</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.servicos, 'Serviço') }}
+                        {{ form_widget(form.servicos, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.servicos) }}</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.ferramentas, 'Ferramentas') }}
+                        {{ form_widget(form.ferramentas, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.ferramentas) }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+{{ form_end(form) }}

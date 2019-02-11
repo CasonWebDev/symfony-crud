@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TbServicos{% endblock %}
+
+{% block body %}
+    <h1>TbServicos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tb_servico.id }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ tb_servico.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Descricao</th>
+                <td>{{ tb_servico.descricao }}</td>
+            </tr>
+            <tr>
+                <th>Tempo_medio</th>
+                <td>{{ tb_servico.tempoMedio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tb_servicos_index') }}">back to list</a>
+
+    <a href="{{ path('tb_servicos_edit', {'id': tb_servico.id}) }}">edit</a>
+
+    {{ include('tb_servicos/_delete_form.html.twig') }}
+{% endblock %}

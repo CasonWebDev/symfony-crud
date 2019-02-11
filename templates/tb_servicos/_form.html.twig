@@ -1,0 +1,32 @@
+{{ form_start(form) }}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.tipo, 'Tipo') }}
+                        {{ form_widget(form.tipo, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.tipo) }}</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.descricao, 'Descrição') }}
+                        {{ form_widget(form.descricao, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.descricao) }}</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(form.tempo_medio, 'Tempo médio') }} <small>(em horas)</small>
+                        {{ form_widget(form.tempo_medio, {'attr': {'class': 'form-control'}, 'required':false}) }}
+                        <small class="text-danger">{{ form_errors(form.tempo_medio) }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TbTecnicos{% endblock %}
+
+{% block body %}
+    <h1>TbTecnicos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tb_tecnico.id }}</td>
+            </tr>
+            <tr>
+                <th>Cpf</th>
+                <td>{{ tb_tecnico.cpf }}</td>
+            </tr>
+            <tr>
+                <th>Nome_completo</th>
+                <td>{{ tb_tecnico.nomeCompleto }}</td>
+            </tr>
+            <tr>
+                <th>Dt_nasc</th>
+                <td>{{ tb_tecnico.dtNasc ? tb_tecnico.dtNasc|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Valor_hora</th>
+                <td>{{ tb_tecnico.valorHora }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tb_tecnicos_index') }}">back to list</a>
+
+    <a href="{{ path('tb_tecnicos_edit', {'id': tb_tecnico.id}) }}">edit</a>
+
+    {{ include('tb_tecnicos/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Técnico{% endblock %}
+
+{% block breadcrumb %}Técnicos{% endblock %}
+
+{% block body %}
+    {{ include('tb_tecnicos/_form.html.twig', {'button_label': 'Update'}) }}
+{% endblock %}

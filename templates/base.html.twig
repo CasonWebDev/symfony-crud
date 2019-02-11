@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ asset('css/admin4b.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+    <title>{% block title %}Bem vindo!{% endblock %}</title>
+  </head>
+  <body>
+    <div class="app">
+        <div class="app-sidebar">
+            <div id="sidebar-nav" class="sidebar-nav">
+                <span class="sidebar-nav-header">
+                    Menu
+                </span>
+                <ul>
+                    <li>
+                        <a href="{{ path('tb_ferramentas_index') }}">
+                            <span class="sidebar-nav-icon fa fa-wrench"></span>
+                            <span class="sidebar-nav-text">Ferramentas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tb_tecnicos_index') }}">
+                            <span class="sidebar-nav-icon fa fa-user"></span>
+                            <span class="sidebar-nav-text">Técnicos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tb_servicos_index') }}">
+                            <span class="sidebar-nav-icon fa fa-cogs"></span>
+                            <span class="sidebar-nav-text">Serviços</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tb_os_index') }}">
+                            <span class="sidebar-nav-icon fa fa-file-text-o"></span>
+                            <span class="sidebar-nav-text">Ordens de Serviço</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="app-content">
+            <div class="content-header">
+            <nav class="navbar navbar-expand navbar-light bg-white">
+                <div class="navbar-brand">Symfony Test</div>
+            </nav>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">{% block breadcrumb %}Pagina{% endblock %}</li>
+                </ol>
+            </nav>
+            </div>
+            <div class="content-body">
+            <div class="container">
+                {% block body %}{% endblock %}
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ asset('js/admin4b.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Serviços{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header d-flex">
+        Técnicos
+        <div class="ml-auto">
+            <a href="{{ path('tb_servicos_new') }}">
+                <button type="button" class="btn btn-outline-success">
+                    <span class="text-nowrap"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Serviço</span>
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Tempo médio (em horas)</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tb_servico in tb_servicos %}
+            <tr>
+                <td>{{ tb_servico.tipo }}</td>
+                <td>{{ tb_servico.descricao }}</td>
+                <td>{{ tb_servico.tempoMedio }}</td>
+                <td>
+                    <div class="d-flex">
+                        <a href="{{ path('tb_servicos_edit', {'id': tb_servico.id}) }}"><i class="edit-icon fa fa-pencil" aria-hidden="true" title="Editar"></i></a>
+                        {{ include('tb_servicos/_delete_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Nenhum registro encontrado</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}
