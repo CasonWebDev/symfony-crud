@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -50,6 +51,10 @@ class TbOs
      *      joinColumns={@ORM\JoinColumn(name="os_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="ferramenta_id", referencedColumnName="cod_ferramenta")}
      *      )
+     * @Assert\Count(
+     *      min = 1,
+     *      minMessage = "ferramenta.one_least"
+     * )
      */
     private $ferramentas;
     
